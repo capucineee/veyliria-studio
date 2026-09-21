@@ -91,40 +91,40 @@
 
   /* ---------- Project modal ---------- */
   const projectData = {
-    "patio": {
+    "demo-restaurant": {
       category: "Restaurant",
-      title: "Le Patio",
-      location: "Carry-le-Rouet — Site vitrine",
+      title: "Site vitrine restaurant",
+      location: "Menu en ligne & réservation",
       tone: "tone-1",
       icon: '<path d="M4 3v7a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V3M6 12v9M14 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/>',
-      description: "Un site vitrine chaleureux pensé pour donner envie de réserver une table. Mise en avant de la carte, de l'ambiance en bord de mer et des horaires d'ouverture, avec un système de réservation simplifié directement accessible depuis la page d'accueil.",
+      description: "Exemple de site vitrine chaleureux pensé pour donner envie de réserver une table. Mise en avant de la carte, de l'ambiance et des horaires d'ouverture, avec un système de réservation simplifié directement accessible depuis la page d'accueil.",
       tags: ["Site vitrine", "Réservation en ligne", "Mobile-first", "Référencement local"]
     },
-    "provence-habitat": {
+    "demo-construction": {
       category: "Construction",
-      title: "Provence Habitat",
-      location: "Gignac-la-Nerthe — Refonte de site",
+      title: "Site vitrine BTP & construction",
+      location: "Galerie de chantiers & devis en ligne",
       tone: "tone-3",
       icon: '<path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>',
-      description: "Refonte complète du site d'une entreprise de construction : nouvelle identité visuelle, galerie de chantiers organisée par type de projet, et formulaire de demande de devis pensé pour générer des prospects qualifiés.",
-      tags: ["Refonte de site", "Galerie de projets", "Demande de devis", "Design responsive"]
+      description: "Exemple de structure adaptée aux entreprises du bâtiment : nouvelle identité visuelle, galerie de chantiers organisée par type de projet, et formulaire de demande de devis pensé pour générer des prospects qualifiés.",
+      tags: ["Refonte de site", "Galerie de chantiers", "Demande de devis", "Design responsive"]
     },
-    "atelier-beaute": {
+    "demo-beaute": {
       category: "Beauté",
-      title: "L'Atelier Beauté",
-      location: "Martigues — Site vitrine",
+      title: "Site vitrine institut de beauté",
+      location: "Prise de rendez-vous en ligne",
       tone: "tone-2",
       icon: '<path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/>',
-      description: "Un univers visuel élégant et épuré pour un institut de beauté haut de gamme, avec présentation des prestations, univers de la marque et prise de rendez-vous en ligne intégrée.",
+      description: "Exemple d'univers visuel élégant et épuré pour un institut de beauté, avec présentation des prestations, univers de la marque et prise de rendez-vous en ligne intégrée.",
       tags: ["Site vitrine", "Prise de rendez-vous", "Identité premium", "Optimisé mobile"]
     },
-    "menuiserie-roux": {
+    "demo-artisan": {
       category: "Artisan",
-      title: "Menuiserie Roux",
-      location: "Châteauneuf-les-Martigues — Site vitrine",
+      title: "Site vitrine artisan",
+      location: "Galerie de réalisations & contact direct",
       tone: "tone-4",
       icon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
-      description: "Mise en valeur du savoir-faire artisanal à travers une galerie de réalisations soignée, une page dédiée aux domaines d'expertise, et un formulaire de contact direct pour recevoir des demandes de projets.",
+      description: "Exemple de mise en valeur du savoir-faire artisanal à travers une galerie de réalisations soignée, une page dédiée aux domaines d'expertise, et un formulaire de contact direct pour recevoir des demandes.",
       tags: ["Site vitrine", "Galerie de réalisations", "Formulaire de contact", "Référencement local"]
     }
   };
@@ -152,8 +152,8 @@
         <div class="modal-tags">
           ${data.tags.map((t) => `<span>${t}</span>`).join("")}
         </div>
-        <a href="#contact" class="btn btn-primary btn-block" id="modalCta">Créer un projet similaire</a>
-        <p class="modal-disclaimer">Projet fictif présenté à titre de démonstration du travail de Veyliria Studio — il ne s'agit pas d'un client réel.</p>
+        <a href="#contact" class="btn btn-primary btn-block" id="modalCta">Créer un site comme celui-ci</a>
+        <p class="modal-disclaimer">Exemple de composant présenté à titre de démonstration du travail de Veyliria Studio — il ne s'agit pas d'un client réel.</p>
       </div>
     `;
 
