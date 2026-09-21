@@ -248,94 +248,278 @@
     </div>
   </section>
 
-  <!-- ============ PORTFOLIO ============ -->
-  <section id="realisations" class="portfolio section-pad">
+  <!-- ============ DEMOS INTERACTIVES ============ -->
+  <section id="realisations" class="demoshow section-pad">
     <div class="container">
-      <div class="portfolio-head reveal">
-        <div class="section-head" style="margin-bottom:0;">
-          <span class="eyebrow">Démonstration</span>
-          <h2>Un aperçu de ce que nous pouvons créer pour vous</h2>
-        </div>
-        <div class="filter-tabs" id="filterTabs">
-          <button class="is-active" data-filter="all">Tous</button>
-          <button data-filter="restaurant">Restaurant</button>
-          <button data-filter="artisan">Artisan</button>
-          <button data-filter="construction">Construction</button>
-          <button data-filter="beaute">Beauté</button>
-        </div>
+      <div class="section-head center reveal">
+        <span class="eyebrow">Démonstration interactive</span>
+        <h2>Testez les fonctionnalités les plus demandées</h2>
+        <p>Ce ne sont pas des images : ce sont de vrais composants fonctionnels, comme ceux que nous intégrons à vos sites.</p>
       </div>
 
-      <div class="portfolio-grid reveal-stagger" id="portfolioGrid">
+      <div class="demo-tabs reveal" role="tablist" aria-label="Choisir une démonstration">
+        <button class="demo-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="demoPanel-devis" id="demoTab-devis" data-demo="devis">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6l5 5v13a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+          Devis en ligne
+        </button>
+        <button class="demo-tab" type="button" role="tab" aria-selected="false" aria-controls="demoPanel-contact" id="demoTab-contact" data-demo="contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4H12a8.3 8.3 0 0 1-4.4-1.3L3 20l1.4-4.6A8.3 8.3 0 0 1 3.5 11 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></svg>
+          Prise de contact
+        </button>
+        <button class="demo-tab" type="button" role="tab" aria-selected="false" aria-controls="demoPanel-carousel" id="demoTab-carousel" data-demo="carousel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Carrousel photo
+        </button>
+        <button class="demo-tab" type="button" role="tab" aria-selected="false" aria-controls="demoPanel-email" id="demoTab-email" data-demo="email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          Email automatique
+        </button>
+      </div>
 
-        <article class="project-card" data-category="restaurant" data-project="demo-restaurant">
-          <div class="project-visual tone-1">
-            <span class="cat-badge">Restaurant</span>
-            <div class="shape"></div>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v7a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V3M6 12v9M14 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/></svg>
-          </div>
-          <div class="project-body">
-            <h3>Site vitrine restaurant</h3>
-            <span class="location">Menu en ligne & réservation</span>
-            <p>Exemple de page pensée pour donner envie de réserver : mise en avant de la carte, de l'ambiance et des horaires, avec un bouton de réservation toujours visible.</p>
-            <button class="project-cta" data-open-modal="demo-restaurant">Voir la démo
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </button>
-          </div>
-        </article>
+      <div class="reveal">
 
-        <article class="project-card" data-category="construction" data-project="demo-construction">
-          <div class="project-visual tone-3">
-            <span class="cat-badge">Construction</span>
-            <div class="shape"></div>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>
+        <!-- PANEL: DEVIS -->
+        <div class="demo-panel is-active" data-demo-panel="devis" id="demoPanel-devis" role="tabpanel" aria-labelledby="demoTab-devis">
+          <div class="demo-info">
+            <span class="demo-badge">Composant</span>
+            <h3>Formulaire de devis en ligne</h3>
+            <p>Vos prospects estiment leur besoin et envoient une demande qualifiée en 2 minutes, sans décrocher le téléphone.</p>
+            <ul class="demo-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Qualifie automatiquement chaque demande</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Réduit les allers-retours par téléphone</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Confirmation immédiate affichée au client</li>
+            </ul>
           </div>
-          <div class="project-body">
-            <h3>Site vitrine BTP & construction</h3>
-            <span class="location">Galerie de chantiers & devis en ligne</span>
-            <p>Exemple de structure adaptée aux entreprises du bâtiment : présentation du savoir-faire, galerie de chantiers et formulaire de demande de devis.</p>
-            <button class="project-cta" data-open-modal="demo-construction">Voir la démo
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </button>
+          <div class="contact-form" id="devisWrap">
+            <form id="devisForm" novalidate>
+              <div class="form-row two">
+                <div class="field" id="field-devisName">
+                  <label for="devisName">Nom complet</label>
+                  <input type="text" id="devisName" placeholder="Jean Dupont" required />
+                  <span class="field-error">Merci de renseigner votre nom.</span>
+                </div>
+                <div class="field" id="field-devisEmail">
+                  <label for="devisEmail">Email</label>
+                  <input type="email" id="devisEmail" placeholder="jean@entreprise.fr" required />
+                  <span class="field-error">Merci de renseigner un email valide.</span>
+                </div>
+              </div>
+              <div class="form-row two">
+                <div class="field" id="field-devisType">
+                  <label for="devisType">Type de projet</label>
+                  <select id="devisType" required>
+                    <option value="">Sélectionnez une option</option>
+                    <option value="vitrine">Site vitrine</option>
+                    <option value="ecommerce">Site e-commerce</option>
+                    <option value="refonte">Refonte de site</option>
+                    <option value="mesure">Site sur mesure</option>
+                  </select>
+                  <span class="field-error">Merci de sélectionner un type de projet.</span>
+                </div>
+                <div class="field" id="field-devisBudget">
+                  <label for="devisBudget">Budget estimé</label>
+                  <select id="devisBudget" required>
+                    <option value="">Sélectionnez une option</option>
+                    <option value="-1000">Moins de 1000€</option>
+                    <option value="1000-3000">1000€ – 3000€</option>
+                    <option value="3000-6000">3000€ – 6000€</option>
+                    <option value="+6000">Plus de 6000€</option>
+                  </select>
+                  <span class="field-error">Merci de sélectionner un budget estimé.</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field" id="field-devisMessage">
+                  <label for="devisMessage">Décrivez votre projet</label>
+                  <textarea id="devisMessage" placeholder="Parlez-nous de votre activité et de vos besoins..." required></textarea>
+                  <span class="field-error">Merci de décrire brièvement votre projet.</span>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">
+                Recevoir mon devis
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+            </form>
+            <div class="form-success" id="devisSuccess">
+              <div class="icon-tile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <h3>Demande de devis enregistrée !</h3>
+              <p>Sur votre site, votre client recevrait ici une confirmation immédiate, avant même votre premier appel.</p>
+              <button type="button" class="btn btn-ghost btn-sm" data-reset-for="devis">Faire un autre essai</button>
+            </div>
           </div>
-        </article>
+        </div>
 
-        <article class="project-card" data-category="beaute" data-project="demo-beaute">
-          <div class="project-visual tone-2">
-            <span class="cat-badge">Beauté</span>
-            <div class="shape"></div>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+        <!-- PANEL: CONTACT -->
+        <div class="demo-panel" data-demo-panel="contact" id="demoPanel-contact" role="tabpanel" aria-labelledby="demoTab-contact" hidden>
+          <div class="demo-info">
+            <span class="demo-badge">Composant</span>
+            <h3>Formulaire de prise de contact</h3>
+            <p>Un formulaire court, pensé pour ne décourager personne, avec une validation en temps réel qui rassure le visiteur.</p>
+            <ul class="demo-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>3 champs seulement pour maximiser les envois</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Messages d'erreur clairs et immédiats</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>100% responsive, testé sur mobile</li>
+            </ul>
           </div>
-          <div class="project-body">
-            <h3>Site vitrine institut de beauté</h3>
-            <span class="location">Prise de rendez-vous en ligne</span>
-            <p>Exemple d'univers élégant et épuré pour mettre en valeur des prestations, avec une prise de rendez-vous fluide intégrée directement au site.</p>
-            <button class="project-cta" data-open-modal="demo-beaute">Voir la démo
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </button>
+          <div class="contact-form" id="dcWrap">
+            <form id="dcForm" novalidate>
+              <div class="form-row two">
+                <div class="field" id="field-dcName">
+                  <label for="dcName">Nom complet</label>
+                  <input type="text" id="dcName" placeholder="Jean Dupont" required />
+                  <span class="field-error">Merci de renseigner votre nom.</span>
+                </div>
+                <div class="field" id="field-dcEmail">
+                  <label for="dcEmail">Email</label>
+                  <input type="email" id="dcEmail" placeholder="jean@entreprise.fr" required />
+                  <span class="field-error">Merci de renseigner un email valide.</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field" id="field-dcMessage">
+                  <label for="dcMessage">Votre message</label>
+                  <textarea id="dcMessage" placeholder="Bonjour, je souhaite..." required></textarea>
+                  <span class="field-error">Merci de renseigner un message.</span>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">
+                Envoyer le message
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+            </form>
+            <div class="form-success" id="dcSuccess">
+              <div class="icon-tile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <h3>Message envoyé !</h3>
+              <p>C'est exactement ce que vos visiteurs verraient après avoir pris contact avec vous.</p>
+              <button type="button" class="btn btn-ghost btn-sm" data-reset-for="dc">Faire un autre essai</button>
+            </div>
           </div>
-        </article>
+        </div>
 
-        <article class="project-card" data-category="artisan" data-project="demo-artisan">
-          <div class="project-visual tone-4">
-            <span class="cat-badge">Artisan</span>
-            <div class="shape"></div>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        <!-- PANEL: CARROUSEL -->
+        <div class="demo-panel" data-demo-panel="carousel" id="demoPanel-carousel" role="tabpanel" aria-labelledby="demoTab-carousel" hidden>
+          <div class="demo-info">
+            <span class="demo-badge">Composant</span>
+            <h3>Carrousel photo</h3>
+            <p>Idéal pour une galerie de réalisations, une vitrine ou une page d'accueil : navigation tactile, flèches et défilement automatique.</p>
+            <ul class="demo-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Défilement au clic, au clavier ou au doigt</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Pause automatique dès que vous interagissez</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>S'adapte à vos propres photos</li>
+            </ul>
           </div>
-          <div class="project-body">
-            <h3>Site vitrine artisan</h3>
-            <span class="location">Galerie de réalisations & contact direct</span>
-            <p>Exemple mettant en valeur un savoir-faire artisanal à travers une galerie de réalisations soignée et un formulaire de contact simple.</p>
-            <button class="project-cta" data-open-modal="demo-artisan">Voir la démo
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </button>
+          <div class="demo-widget-frame">
+            <div class="carousel" id="photoCarousel" tabindex="0" aria-roledescription="carrousel" aria-label="Exemples de photos">
+              <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide tone-1">
+                  <div class="shape"></div>
+                  <div class="carousel-caption">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    <span>Mise en avant de la vitrine</span>
+                  </div>
+                </div>
+                <div class="carousel-slide tone-3">
+                  <div class="shape"></div>
+                  <div class="carousel-caption">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    <span>Galerie de réalisations</span>
+                  </div>
+                </div>
+                <div class="carousel-slide tone-2">
+                  <div class="shape"></div>
+                  <div class="carousel-caption">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    <span>Ambiance & univers de marque</span>
+                  </div>
+                </div>
+                <div class="carousel-slide tone-4">
+                  <div class="shape"></div>
+                  <div class="carousel-caption">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    <span>Équipe & savoir-faire</span>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-arrow prev" id="carouselPrev" aria-label="Photo précédente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="carousel-arrow next" id="carouselNext" aria-label="Photo suivante">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+            <div class="carousel-dots" id="carouselDots">
+              <button class="is-active" data-slide="0" aria-label="Aller à la photo 1"></button>
+              <button data-slide="1" aria-label="Aller à la photo 2"></button>
+              <button data-slide="2" aria-label="Aller à la photo 3"></button>
+              <button data-slide="3" aria-label="Aller à la photo 4"></button>
+            </div>
           </div>
-        </article>
+        </div>
+
+        <!-- PANEL: EMAIL AUTOMATIQUE -->
+        <div class="demo-panel" data-demo-panel="email" id="demoPanel-email" role="tabpanel" aria-labelledby="demoTab-email" hidden>
+          <div class="demo-info">
+            <span class="demo-badge">Composant</span>
+            <h3>Email automatique</h3>
+            <p>Après un devis ou une prise de contact, un email de confirmation part automatiquement vers votre client — sans aucune action de votre part.</p>
+            <ul class="demo-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Rassure le client immédiatement après l'envoi</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Personnalisé avec le nom du client</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Se connecte à votre boîte pro existante</li>
+            </ul>
+          </div>
+          <div class="contact-form" id="edWrap">
+            <form id="edForm" novalidate>
+              <div class="form-row two">
+                <div class="field" id="field-edName">
+                  <label for="edName">Nom complet</label>
+                  <input type="text" id="edName" placeholder="Jean Dupont" required />
+                  <span class="field-error">Merci de renseigner votre nom.</span>
+                </div>
+                <div class="field" id="field-edEmail">
+                  <label for="edEmail">Email</label>
+                  <input type="email" id="edEmail" placeholder="jean@entreprise.fr" required />
+                  <span class="field-error">Merci de renseigner un email valide.</span>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">
+                Envoyer ma demande
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+              <p class="form-note">Déclenche l'aperçu de l'email automatique ci-dessous.</p>
+            </form>
+            <div class="email-preview" id="emailPreview">
+              <span class="preview-flag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                Aperçu — simulation
+              </span>
+              <div class="mail-window">
+                <div class="mail-header">
+                  <div class="mail-row"><b>De</b><span>Veyliria Studio &lt;contact@veyliria-studio.fr&gt;</span></div>
+                  <div class="mail-row"><b>À</b><span id="emailPreviewTo">client@exemple.fr</span></div>
+                  <div class="mail-subject">Confirmation de votre demande</div>
+                </div>
+                <div class="mail-body">
+                  <p>Bonjour <span id="emailPreviewName">Jean</span>,</p>
+                  <p>Nous avons bien reçu votre demande. Nous revenons vers vous sous 24h ouvrées pour en discuter ensemble.</p>
+                  <p class="mail-signoff">L'équipe Veyliria Studio</p>
+                </div>
+              </div>
+              <p class="preview-note">Cet aperçu illustre le contenu de l'email envoyé automatiquement à votre client. Une fois un service d'envoi connecté (ex. EmailJS, Brevo…), cet email part réellement, sans action de votre part.</p>
+              <button type="button" class="btn btn-ghost btn-sm" data-reset-for="ed">Faire un autre essai</button>
+            </div>
+          </div>
+        </div>
 
       </div>
 
       <p class="portfolio-note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-        Exemples de composants et de pages types, illustrant ce que Veyliria Studio peut concevoir pour votre activité — il ne s'agit pas de projets clients réels.
+        Devis, contact et carrousel sont pleinement fonctionnels. L'email automatique est présenté en aperçu ; il devient réellement envoyé une fois connecté à un service d'envoi.
       </p>
     </div>
   </section>
@@ -581,11 +765,6 @@
 <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
-
-<!-- ============ PROJECT MODAL ============ -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal-card" id="modalCard" role="dialog" aria-modal="true"></div>
-</div>
 
 <script src="js/main.js"></script>
 </body>

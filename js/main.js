@@ -71,123 +71,29 @@
     revealTargets.forEach((el) => el.classList.add("is-visible"));
   }
 
-  /* ---------- Portfolio filter ---------- */
-  const filterTabs = document.getElementById("filterTabs");
-  const portfolioGrid = document.getElementById("portfolioGrid");
+  /* ---------- Demo tabs ---------- */
+  const demoTabs = document.querySelectorAll(".demo-tab");
+  const demoPanels = document.querySelectorAll(".demo-panel");
 
-  filterTabs?.addEventListener("click", (e) => {
-    const btn = e.target.closest("button[data-filter]");
-    if (!btn) return;
+  demoTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const target = tab.dataset.demo;
 
-    filterTabs.querySelectorAll("button").forEach((b) => b.classList.remove("is-active"));
-    btn.classList.add("is-active");
+      demoTabs.forEach((t) => {
+        const isActive = t === tab;
+        t.classList.toggle("is-active", isActive);
+        t.setAttribute("aria-selected", String(isActive));
+      });
 
-    const filter = btn.dataset.filter;
-    portfolioGrid?.querySelectorAll(".project-card").forEach((card) => {
-      const match = filter === "all" || card.dataset.category === filter;
-      card.style.display = match ? "" : "none";
+      demoPanels.forEach((panel) => {
+        const isActive = panel.dataset.demoPanel === target;
+        panel.classList.toggle("is-active", isActive);
+        panel.hidden = !isActive;
+      });
     });
   });
 
-  /* ---------- Project modal ---------- */
-  const projectData = {
-    "demo-restaurant": {
-      category: "Restaurant",
-      title: "Site vitrine restaurant",
-      location: "Menu en ligne & réservation",
-      tone: "tone-1",
-      icon: '<path d="M4 3v7a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V3M6 12v9M14 3c-1.7 0-3 2-3 5s1.3 5 3 5v8"/>',
-      description: "Exemple de site vitrine chaleureux pensé pour donner envie de réserver une table. Mise en avant de la carte, de l'ambiance et des horaires d'ouverture, avec un système de réservation simplifié directement accessible depuis la page d'accueil.",
-      tags: ["Site vitrine", "Réservation en ligne", "Mobile-first", "Référencement local"]
-    },
-    "demo-construction": {
-      category: "Construction",
-      title: "Site vitrine BTP & construction",
-      location: "Galerie de chantiers & devis en ligne",
-      tone: "tone-3",
-      icon: '<path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>',
-      description: "Exemple de structure adaptée aux entreprises du bâtiment : nouvelle identité visuelle, galerie de chantiers organisée par type de projet, et formulaire de demande de devis pensé pour générer des prospects qualifiés.",
-      tags: ["Refonte de site", "Galerie de chantiers", "Demande de devis", "Design responsive"]
-    },
-    "demo-beaute": {
-      category: "Beauté",
-      title: "Site vitrine institut de beauté",
-      location: "Prise de rendez-vous en ligne",
-      tone: "tone-2",
-      icon: '<path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/>',
-      description: "Exemple d'univers visuel élégant et épuré pour un institut de beauté, avec présentation des prestations, univers de la marque et prise de rendez-vous en ligne intégrée.",
-      tags: ["Site vitrine", "Prise de rendez-vous", "Identité premium", "Optimisé mobile"]
-    },
-    "demo-artisan": {
-      category: "Artisan",
-      title: "Site vitrine artisan",
-      location: "Galerie de réalisations & contact direct",
-      tone: "tone-4",
-      icon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
-      description: "Exemple de mise en valeur du savoir-faire artisanal à travers une galerie de réalisations soignée, une page dédiée aux domaines d'expertise, et un formulaire de contact direct pour recevoir des demandes.",
-      tags: ["Site vitrine", "Galerie de réalisations", "Formulaire de contact", "Référencement local"]
-    }
-  };
-
-  const modalOverlay = document.getElementById("modalOverlay");
-  const modalCard = document.getElementById("modalCard");
-
-  function openModal(id) {
-    const data = projectData[id];
-    if (!data || !modalCard || !modalOverlay) return;
-
-    modalCard.innerHTML = `
-      <div class="modal-visual ${data.tone}">
-        <button class="modal-close" id="modalClose" aria-label="Fermer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-        </button>
-        <div class="shape"></div>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${data.icon}</svg>
-      </div>
-      <div class="modal-body">
-        <span class="cat-badge">${data.category}</span>
-        <h3>${data.title}</h3>
-        <p class="location">${data.location}</p>
-        <p>${data.description}</p>
-        <div class="modal-tags">
-          ${data.tags.map((t) => `<span>${t}</span>`).join("")}
-        </div>
-        <a href="#contact" class="btn btn-primary btn-block" id="modalCta">Créer un site comme celui-ci</a>
-        <p class="modal-disclaimer">Exemple de composant présenté à titre de démonstration du travail de Veyliria Studio — il ne s'agit pas d'un client réel.</p>
-      </div>
-    `;
-
-    modalOverlay.classList.add("is-open");
-    document.body.style.overflow = "hidden";
-
-    modalCard.querySelector("#modalClose")?.addEventListener("click", closeModal);
-    modalCard.querySelector("#modalCta")?.addEventListener("click", closeModal);
-  }
-
-  function closeModal() {
-    modalOverlay?.classList.remove("is-open");
-    document.body.style.overflow = "";
-  }
-
-  portfolioGrid?.addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-open-modal]");
-    if (!btn) return;
-    openModal(btn.dataset.openModal);
-  });
-
-  modalOverlay?.addEventListener("click", (e) => {
-    if (e.target === modalOverlay) closeModal();
-  });
-
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeModal();
-  });
-
-  /* ---------- Contact form ---------- */
-  const contactForm = document.getElementById("contactForm");
-  const contactFormWrap = document.getElementById("contactFormWrap");
-  const formSuccess = document.getElementById("formSuccess");
-
+  /* ---------- Shared form helpers ---------- */
   function setFieldError(fieldId, hasError) {
     const field = document.getElementById(fieldId);
     field?.classList.toggle("has-error", hasError);
@@ -197,44 +103,185 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
 
-  contactForm?.addEventListener("submit", (e) => {
-    e.preventDefault();
+  function resetDemoForm(form, wrap, success) {
+    form?.reset();
+    form?.querySelectorAll(".field").forEach((f) => f.classList.remove("has-error"));
+    wrap?.classList.remove("is-submitted");
+    success?.classList.remove("is-visible");
+  }
 
-    const name = document.getElementById("name");
-    const email = document.getElementById("email");
-    const project = document.getElementById("project");
-    const message = document.getElementById("message");
+  // Generic validated-form wiring: reused by the contact section and every demo form.
+  function initValidatedForm({ formId, wrapId, successId, resetKey, fields }) {
+    const form = document.getElementById(formId);
+    const wrap = document.getElementById(wrapId);
+    const success = document.getElementById(successId);
+    if (!form) return;
 
-    let valid = true;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let valid = true;
 
-    if (!name.value.trim()) {
-      setFieldError("field-name", true);
-      valid = false;
-    } else setFieldError("field-name", false);
+      fields.forEach(({ inputId, fieldId, validate }) => {
+        const input = document.getElementById(inputId);
+        const ok = validate ? validate(input.value.trim()) : input.value.trim().length > 0;
+        setFieldError(fieldId, !ok);
+        if (!ok) valid = false;
+      });
 
-    if (!email.value.trim() || !isValidEmail(email.value.trim())) {
-      setFieldError("field-email", true);
-      valid = false;
-    } else setFieldError("field-email", false);
+      if (!valid) {
+        form.querySelector(".has-error input, .has-error select, .has-error textarea")?.focus();
+        return;
+      }
 
-    if (!project.value) {
-      setFieldError("field-project", true);
-      valid = false;
-    } else setFieldError("field-project", false);
+      wrap?.classList.add("is-submitted");
+      success?.classList.add("is-visible");
+    });
 
-    if (!message.value.trim() || message.value.trim().length < 10) {
-      setFieldError("field-message", true);
-      valid = false;
-    } else setFieldError("field-message", false);
+    if (resetKey) {
+      success
+        ?.querySelector(`[data-reset-for="${resetKey}"]`)
+        ?.addEventListener("click", () => resetDemoForm(form, wrap, success));
+    }
+  }
 
-    if (!valid) {
-      contactForm.querySelector(".has-error input, .has-error select, .has-error textarea")?.focus();
-      return;
+  const notEmpty = (v) => v.length > 0;
+  const validEmail = (v) => v.length > 0 && isValidEmail(v);
+
+  /* ---------- Main contact form ---------- */
+  initValidatedForm({
+    formId: "contactForm",
+    wrapId: "contactFormWrap",
+    successId: "formSuccess",
+    fields: [
+      { inputId: "name", fieldId: "field-name", validate: notEmpty },
+      { inputId: "email", fieldId: "field-email", validate: validEmail },
+      { inputId: "project", fieldId: "field-project", validate: notEmpty },
+      { inputId: "message", fieldId: "field-message", validate: (v) => v.length >= 10 }
+    ]
+  });
+
+  /* ---------- Demo: devis en ligne ---------- */
+  initValidatedForm({
+    formId: "devisForm",
+    wrapId: "devisWrap",
+    successId: "devisSuccess",
+    resetKey: "devis",
+    fields: [
+      { inputId: "devisName", fieldId: "field-devisName", validate: notEmpty },
+      { inputId: "devisEmail", fieldId: "field-devisEmail", validate: validEmail },
+      { inputId: "devisType", fieldId: "field-devisType", validate: notEmpty },
+      { inputId: "devisBudget", fieldId: "field-devisBudget", validate: notEmpty },
+      { inputId: "devisMessage", fieldId: "field-devisMessage", validate: (v) => v.length >= 10 }
+    ]
+  });
+
+  /* ---------- Demo: prise de contact ---------- */
+  initValidatedForm({
+    formId: "dcForm",
+    wrapId: "dcWrap",
+    successId: "dcSuccess",
+    resetKey: "dc",
+    fields: [
+      { inputId: "dcName", fieldId: "field-dcName", validate: notEmpty },
+      { inputId: "dcEmail", fieldId: "field-dcEmail", validate: validEmail },
+      { inputId: "dcMessage", fieldId: "field-dcMessage", validate: notEmpty }
+    ]
+  });
+
+  /* ---------- Demo: carrousel photo ---------- */
+  (function initCarousel() {
+    const carousel = document.getElementById("photoCarousel");
+    const track = document.getElementById("carouselTrack");
+    const dots = document.querySelectorAll("#carouselDots button");
+    const prevBtn = document.getElementById("carouselPrev");
+    const nextBtn = document.getElementById("carouselNext");
+    if (!carousel || !track) return;
+
+    const slides = Array.from(track.children);
+    let index = 0;
+    let autoplayId = null;
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, di) => d.classList.toggle("is-active", di === index));
     }
 
-    contactFormWrap?.classList.add("is-submitted");
-    formSuccess?.classList.add("is-visible");
-  });
+    function next() { goTo(index + 1); }
+    function prev() { goTo(index - 1); }
+
+    function startAutoplay() { autoplayId = setInterval(next, 4500); }
+    function stopAutoplay() { if (autoplayId) clearInterval(autoplayId); }
+    function restartAutoplay() { stopAutoplay(); startAutoplay(); }
+
+    nextBtn?.addEventListener("click", () => { next(); restartAutoplay(); });
+    prevBtn?.addEventListener("click", () => { prev(); restartAutoplay(); });
+    dots.forEach((d, di) => d.addEventListener("click", () => { goTo(di); restartAutoplay(); }));
+
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+    carousel.addEventListener("focusin", stopAutoplay);
+    carousel.addEventListener("focusout", startAutoplay);
+
+    carousel.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { next(); restartAutoplay(); }
+      if (e.key === "ArrowLeft") { prev(); restartAutoplay(); }
+    });
+
+    let startX = null;
+    track.addEventListener("pointerdown", (e) => { startX = e.clientX; stopAutoplay(); });
+    track.addEventListener("pointerup", (e) => {
+      if (startX === null) return;
+      const delta = e.clientX - startX;
+      if (Math.abs(delta) > 40) { delta < 0 ? next() : prev(); }
+      startX = null;
+      startAutoplay();
+    });
+
+    startAutoplay();
+  })();
+
+  /* ---------- Demo: email automatique ---------- */
+  (function initEmailDemo() {
+    const form = document.getElementById("edForm");
+    const wrap = document.getElementById("edWrap");
+    const preview = document.getElementById("emailPreview");
+    const previewName = document.getElementById("emailPreviewName");
+    const previewTo = document.getElementById("emailPreviewTo");
+    if (!form) return;
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nameInput = document.getElementById("edName");
+      const emailInput = document.getElementById("edEmail");
+      let valid = true;
+
+      if (!nameInput.value.trim()) {
+        setFieldError("field-edName", true);
+        valid = false;
+      } else setFieldError("field-edName", false);
+
+      if (!validEmail(emailInput.value.trim())) {
+        setFieldError("field-edEmail", true);
+        valid = false;
+      } else setFieldError("field-edEmail", false);
+
+      if (!valid) {
+        form.querySelector(".has-error input")?.focus();
+        return;
+      }
+
+      if (previewName) previewName.textContent = nameInput.value.trim().split(" ")[0];
+      if (previewTo) previewTo.textContent = emailInput.value.trim();
+      wrap?.classList.add("is-submitted");
+      preview?.classList.add("is-visible");
+    });
+
+    preview?.querySelector('[data-reset-for="ed"]')?.addEventListener("click", () => {
+      resetDemoForm(form, wrap, preview);
+    });
+  })();
 
   /* ---------- Header offset for hash links on load ---------- */
   if (window.location.hash) {
