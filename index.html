@@ -274,6 +274,22 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
           Email automatique
         </button>
+        <button class="demo-tab" type="button" role="tab" aria-selected="false" aria-controls="demoPanel-faq" id="demoTab-faq" data-demo="faq">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 1 1 5.82 1c-.4 1-1.9 1.6-1.9 3"/><path d="M12 17h.01"/></svg>
+          FAQ
+        </button>
+        <button class="demo-tab" type="button" role="tab" aria-selected="false" aria-controls="demoPanel-booking" id="demoTab-booking" data-demo="booking">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Prise de RDV
+        </button>
+        <button class="demo-tab" type="button" role="tab" aria-selected="false" aria-controls="demoPanel-beforeafter" id="demoTab-beforeafter" data-demo="beforeafter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg>
+          Avant / Après
+        </button>
+        <button class="demo-tab" type="button" role="tab" aria-selected="false" aria-controls="demoPanel-map" id="demoTab-map" data-demo="map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Localisation
+        </button>
       </div>
 
       <div class="reveal">
@@ -515,11 +531,162 @@
           </div>
         </div>
 
+        <!-- PANEL: FAQ -->
+        <div class="demo-panel" data-demo-panel="faq" id="demoPanel-faq" role="tabpanel" aria-labelledby="demoTab-faq" hidden>
+          <div class="demo-info">
+            <span class="demo-badge">Composant</span>
+            <h3>FAQ accordéon</h3>
+            <p>Répondez aux questions les plus fréquentes sans alourdir la page : chaque réponse se déplie au clic.</p>
+            <ul class="demo-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Réduit les questions répétées par email</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Rassure le visiteur avant qu'il ne parte</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Un seul clic, aucun rechargement de page</li>
+            </ul>
+          </div>
+          <div class="demo-widget-frame">
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  <span>Combien de temps faut-il pour créer mon site ?</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-panel">
+                  <p>En moyenne moins de 3 semaines entre le premier échange et la mise en ligne, selon la complexité du projet.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  <span>Dois-je fournir mes textes et mes photos ?</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-panel">
+                  <p>Non, nous pouvons vous accompagner sur la rédaction et vous conseiller sur le visuel si besoin.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  <span>Le site sera-t-il visible sur mobile ?</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-panel">
+                  <p>Oui, chaque site est conçu mobile-first et testé sur ordinateur, tablette et mobile avant la mise en ligne.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  <span>Puis-je modifier mon site moi-même après la livraison ?</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-panel">
+                  <p>Oui, selon la solution choisie. On en discute ensemble pour trouver ce qui vous convient le mieux.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL: PRISE DE RDV -->
+        <div class="demo-panel" data-demo-panel="booking" id="demoPanel-booking" role="tabpanel" aria-labelledby="demoTab-booking" hidden>
+          <div class="demo-info">
+            <span class="demo-badge">Composant</span>
+            <h3>Prise de rendez-vous</h3>
+            <p>Vos clients choisissent une date et un créneau directement sur votre site, sans échange de messages pour trouver un horaire.</p>
+            <ul class="demo-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Calendrier réel, navigable mois par mois</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Créneaux disponibles affichés instantanément</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Idéal pour instituts, artisans, consultations</li>
+            </ul>
+          </div>
+          <div class="contact-form" id="bookingWrap">
+            <div class="booking" id="bookingWidget">
+              <div class="booking-header">
+                <button type="button" id="bookingPrev" aria-label="Mois précédent">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <span id="bookingMonthLabel">Septembre 2026</span>
+                <button type="button" id="bookingNext" aria-label="Mois suivant">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+              </div>
+              <div class="booking-weekdays">
+                <span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
+              </div>
+              <div class="booking-days" id="bookingDays"></div>
+              <div class="booking-slots" id="bookingSlots" hidden>
+                <p class="booking-slots-label">Créneaux disponibles le <span id="bookingSelectedDate"></span></p>
+                <div class="booking-slot-grid" id="bookingSlotGrid"></div>
+              </div>
+            </div>
+            <div class="form-success" id="bookingSuccess">
+              <div class="icon-tile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <h3>Rendez-vous confirmé !</h3>
+              <p>Vous seriez attendu(e) le <b id="bookingConfirmDate"></b> à <b id="bookingConfirmSlot"></b>.</p>
+              <button type="button" class="btn btn-ghost btn-sm" data-reset-for="booking">Faire un autre essai</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL: AVANT / APRÈS -->
+        <div class="demo-panel" data-demo-panel="beforeafter" id="demoPanel-beforeafter" role="tabpanel" aria-labelledby="demoTab-beforeafter" hidden>
+          <div class="demo-info">
+            <span class="demo-badge">Composant</span>
+            <h3>Comparateur avant / après</h3>
+            <p>Glissez pour révéler la transformation : idéal pour montrer l'impact d'une rénovation, d'un aménagement ou d'une prestation.</p>
+            <ul class="demo-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Glisser-déposer à la souris ou au doigt</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Prouve la qualité du travail en un coup d'œil</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Idéal pour le BTP, la rénovation, le paysagisme</li>
+            </ul>
+          </div>
+          <div class="demo-widget-frame">
+            <div class="compare" id="compareWidget">
+              <div class="compare-layer compare-after tone-3">
+                <div class="shape"></div>
+                <span class="compare-tag tag-after">Après</span>
+              </div>
+              <div class="compare-clip" id="compareClip">
+                <div class="compare-layer compare-before tone-1">
+                  <div class="shape"></div>
+                  <span class="compare-tag tag-before">Avant</span>
+                </div>
+              </div>
+              <div class="compare-handle" id="compareHandle" tabindex="0" role="slider" aria-label="Curseur de comparaison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL: LOCALISATION -->
+        <div class="demo-panel" data-demo-panel="map" id="demoPanel-map" role="tabpanel" aria-labelledby="demoTab-map" hidden>
+          <div class="demo-info">
+            <span class="demo-badge">Composant</span>
+            <h3>Carte de localisation</h3>
+            <p>Affichez votre zone d'intervention sur une carte interactive : vos visiteurs voient tout de suite si vous couvrez leur secteur.</p>
+            <ul class="demo-points">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Carte réelle, navigable (zoom, déplacement)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Rassure sur la proximité géographique</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Un clic pour ouvrir l'itinéraire complet</li>
+            </ul>
+          </div>
+          <div class="demo-widget-frame">
+            <div class="map-frame">
+              <iframe title="Carte de la zone d'intervention de Veyliria Studio" src="https://www.openstreetmap.org/export/embed.html?bbox=4.9200%2C43.3350%2C5.1600%2C43.4650&layer=mapnik&marker=43.4055%2C5.0480" loading="lazy"></iframe>
+            </div>
+            <a class="map-link" href="https://www.openstreetmap.org/?mlat=43.4055&mlon=5.0480#map=11/43.4055/5.0480" target="_blank" rel="noopener">
+              Voir en grand
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg>
+            </a>
+          </div>
+        </div>
+
       </div>
 
       <p class="portfolio-note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-        Devis, contact et carrousel sont pleinement fonctionnels. L'email automatique est présenté en aperçu ; il devient réellement envoyé une fois connecté à un service d'envoi.
+        Toutes ces démos sont pleinement fonctionnelles, sauf l'email automatique, présenté en aperçu honnête tant qu'aucun service d'envoi n'est connecté.
       </p>
     </div>
   </section>

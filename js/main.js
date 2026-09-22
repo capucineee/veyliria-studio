@@ -283,6 +283,166 @@
     });
   })();
 
+  /* ---------- Demo: FAQ accordéon ---------- */
+  (function initAccordion() {
+    const accordion = document.getElementById("faqAccordion");
+    if (!accordion) return;
+
+    accordion.querySelectorAll(".accordion-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const panel = trigger.nextElementSibling;
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+        trigger.setAttribute("aria-expanded", String(!isOpen));
+        panel.style.maxHeight = isOpen ? "0px" : panel.scrollHeight + "px";
+      });
+    });
+  })();
+
+  /* ---------- Demo: prise de rendez-vous ---------- */
+  (function initBooking() {
+    const monthLabel = document.getElementById("bookingMonthLabel");
+    const daysWrap = document.getElementById("bookingDays");
+    const prevBtn = document.getElementById("bookingPrev");
+    const nextBtn = document.getElementById("bookingNext");
+    const slotsWrap = document.getElementById("bookingSlots");
+    const slotGrid = document.getElementById("bookingSlotGrid");
+    const selectedDateLabel = document.getElementById("bookingSelectedDate");
+    const bookingWrap = document.getElementById("bookingWrap");
+    const bookingSuccess = document.getElementById("bookingSuccess");
+    const confirmDate = document.getElementById("bookingConfirmDate");
+    const confirmSlot = document.getElementById("bookingConfirmSlot");
+    if (!daysWrap) return;
+
+    const SLOTS = ["9h00", "10h30", "14h00", "15h30", "17h00"];
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    let viewYear = today.getFullYear();
+    let viewMonth = today.getMonth();
+    let selectedDate = null;
+
+    function isSameDay(a, b) {
+      return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+    }
+
+    function render() {
+      const first = new Date(viewYear, viewMonth, 1);
+      const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+      const startOffset = (first.getDay() + 6) % 7;
+
+      monthLabel.textContent = first.toLocaleDateString("fr-FR", { month: "long", year: "numeric" });
+      prevBtn.disabled = viewYear === today.getFullYear() && viewMonth === today.getMonth();
+
+      daysWrap.innerHTML = "";
+      for (let i = 0; i < startOffset; i++) {
+        const pad = document.createElement("span");
+        pad.className = "pad";
+        daysWrap.appendChild(pad);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(viewYear, viewMonth, d);
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = String(d);
+        btn.disabled = date < today;
+        if (selectedDate && isSameDay(date, selectedDate)) btn.classList.add("is-selected");
+        btn.addEventListener("click", () => selectDate(date));
+        daysWrap.appendChild(btn);
+      }
+    }
+
+    function selectDate(date) {
+      selectedDate = date;
+      render();
+
+      selectedDateLabel.textContent = date.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" });
+      slotGrid.innerHTML = "";
+      SLOTS.forEach((slot) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = slot;
+        btn.addEventListener("click", () => confirmBooking(date, slot));
+        slotGrid.appendChild(btn);
+      });
+      slotsWrap.hidden = false;
+    }
+
+    function confirmBooking(date, slot) {
+      confirmDate.textContent = date.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" });
+      confirmSlot.textContent = slot;
+      bookingWrap?.classList.add("is-submitted");
+      bookingSuccess?.classList.add("is-visible");
+    }
+
+    prevBtn.addEventListener("click", () => {
+      viewMonth -= 1;
+      if (viewMonth < 0) { viewMonth = 11; viewYear -= 1; }
+      render();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      viewMonth += 1;
+      if (viewMonth > 11) { viewMonth = 0; viewYear += 1; }
+      render();
+    });
+
+    bookingSuccess?.querySelector('[data-reset-for="booking"]')?.addEventListener("click", () => {
+      selectedDate = null;
+      slotsWrap.hidden = true;
+      bookingWrap?.classList.remove("is-submitted");
+      bookingSuccess?.classList.remove("is-visible");
+      viewYear = today.getFullYear();
+      viewMonth = today.getMonth();
+      render();
+    });
+
+    render();
+  })();
+
+  /* ---------- Demo: comparateur avant / après ---------- */
+  (function initCompare() {
+    const compare = document.getElementById("compareWidget");
+    const clip = document.getElementById("compareClip");
+    const handle = document.getElementById("compareHandle");
+    if (!compare || !clip || !handle) return;
+
+    function setPosition(percent) {
+      const clamped = Math.min(100, Math.max(0, percent));
+      clip.style.width = clamped + "%";
+      handle.style.left = clamped + "%";
+      handle.setAttribute("aria-valuenow", String(Math.round(clamped)));
+    }
+
+    function percentFromClientX(clientX) {
+      const rect = compare.getBoundingClientRect();
+      return ((clientX - rect.left) / rect.width) * 100;
+    }
+
+    let dragging = false;
+
+    compare.addEventListener("pointerdown", (e) => {
+      dragging = true;
+      setPosition(percentFromClientX(e.clientX));
+      compare.setPointerCapture(e.pointerId);
+    });
+
+    compare.addEventListener("pointermove", (e) => {
+      if (!dragging) return;
+      setPosition(percentFromClientX(e.clientX));
+    });
+
+    compare.addEventListener("pointerup", () => { dragging = false; });
+    compare.addEventListener("pointercancel", () => { dragging = false; });
+
+    handle.addEventListener("keydown", (e) => {
+      const current = parseFloat(clip.style.width) || 50;
+      if (e.key === "ArrowLeft") { setPosition(current - 5); e.preventDefault(); }
+      if (e.key === "ArrowRight") { setPosition(current + 5); e.preventDefault(); }
+    });
+  })();
+
   /* ---------- Header offset for hash links on load ---------- */
   if (window.location.hash) {
     setTimeout(() => {
